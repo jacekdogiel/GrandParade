@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B22A4F2929B7D45500326B97 /* GrandParadeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F2829B7D45500326B97 /* GrandParadeApp.swift */; };
-		B22A4F2B29B7D45500326B97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F2A29B7D45500326B97 /* ContentView.swift */; };
 		B22A4F2D29B7D45500326B97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B22A4F2C29B7D45500326B97 /* Assets.xcassets */; };
 		B22A4F3129B7D45500326B97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B22A4F3029B7D45500326B97 /* Preview Assets.xcassets */; };
 		B22A4F3B29B7D45600326B97 /* GrandParadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F3A29B7D45600326B97 /* GrandParadeTests.swift */; };
@@ -17,6 +16,8 @@
 		B2AF21D029B7D4BD00802935 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21CF29B7D4BD00802935 /* Product.swift */; };
 		B2AF21D329B7D53B00802935 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D229B7D53B00802935 /* ProductService.swift */; };
 		B2AF21D529B7D56100802935 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D429B7D56100802935 /* Constants.swift */; };
+		B2AF21D729B7D5B400802935 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D629B7D5B400802935 /* ProductsListView.swift */; };
+		B2AF21DA29B7D5F300802935 /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D929B7D5F300802935 /* ProductsListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 /* Begin PBXFileReference section */
 		B22A4F2529B7D45500326B97 /* GrandParade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandParade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22A4F2829B7D45500326B97 /* GrandParadeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandParadeApp.swift; sourceTree = "<group>"; };
-		B22A4F2A29B7D45500326B97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B22A4F2C29B7D45500326B97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B22A4F2E29B7D45500326B97 /* GrandParade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GrandParade.entitlements; sourceTree = "<group>"; };
 		B22A4F3029B7D45500326B97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		B2AF21CF29B7D4BD00802935 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B2AF21D229B7D53B00802935 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		B2AF21D429B7D56100802935 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B2AF21D629B7D5B400802935 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
+		B2AF21D929B7D5F300802935 /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		B22A4F2729B7D45500326B97 /* GrandParade */ = {
 			isa = PBXGroup;
 			children = (
+				B2AF21D829B7D5E100802935 /* ViewModels */,
 				B2AF21D129B7D51F00802935 /* Services */,
 				B2AF21CE29B7D4AE00802935 /* Views */,
 				B2AF21CD29B7D4A600802935 /* Models */,
@@ -149,7 +152,7 @@
 		B2AF21CE29B7D4AE00802935 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B22A4F2A29B7D45500326B97 /* ContentView.swift */,
+				B2AF21D629B7D5B400802935 /* ProductsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +163,14 @@
 				B2AF21D229B7D53B00802935 /* ProductService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B2AF21D829B7D5E100802935 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B2AF21D929B7D5F300802935 /* ProductsListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,10 +304,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2AF21D529B7D56100802935 /* Constants.swift in Sources */,
-				B22A4F2B29B7D45500326B97 /* ContentView.swift in Sources */,
+				B2AF21D729B7D5B400802935 /* ProductsListView.swift in Sources */,
 				B2AF21D329B7D53B00802935 /* ProductService.swift in Sources */,
 				B22A4F2929B7D45500326B97 /* GrandParadeApp.swift in Sources */,
 				B2AF21D029B7D4BD00802935 /* Product.swift in Sources */,
+				B2AF21DA29B7D5F300802935 /* ProductsListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

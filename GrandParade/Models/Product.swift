@@ -22,3 +22,13 @@ struct Product: Codable, Identifiable {
         case imageUrlString = "image_url"
     }
 }
+
+extension Product {
+    var priceString: String? {
+        guard let price = price else { return nil }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = "USD"
+        return formatter.string(from: price as NSDecimalNumber)
+    }
+}

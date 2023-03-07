@@ -11,7 +11,9 @@ import SwiftUI
 struct GrandParadeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let productService = ProductService()
+            let viewModel = ProductsListViewModel(productService: productService)
+            ProductsListView(viewModel: viewModel)
         }
     }
 }
