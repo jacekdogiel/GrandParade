@@ -14,7 +14,7 @@ struct ProductsListView: View {
         NavigationView {
             VStack {
                 List(viewModel.products) { product in
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: ProductDetailView(product: product)) {
                         VStack(alignment: .leading) {
                             Text(product.name ?? "")
                                 .padding(.bottom, 5)

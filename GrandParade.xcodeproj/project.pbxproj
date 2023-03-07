@@ -18,6 +18,7 @@
 		B2AF21D529B7D56100802935 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D429B7D56100802935 /* Constants.swift */; };
 		B2AF21D729B7D5B400802935 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D629B7D5B400802935 /* ProductsListView.swift */; };
 		B2AF21DA29B7D5F300802935 /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D929B7D5F300802935 /* ProductsListViewModel.swift */; };
+		B2AF21DC29B7D6EE00802935 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21DB29B7D6EE00802935 /* ProductDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B2AF21D429B7D56100802935 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2AF21D629B7D5B400802935 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
 		B2AF21D929B7D5F300802935 /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
+		B2AF21DB29B7D6EE00802935 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B2AF21D629B7D5B400802935 /* ProductsListView.swift */,
+				B2AF21DB29B7D6EE00802935 /* ProductDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2AF21D529B7D56100802935 /* Constants.swift in Sources */,
+				B2AF21DC29B7D6EE00802935 /* ProductDetailView.swift in Sources */,
 				B2AF21D729B7D5B400802935 /* ProductsListView.swift in Sources */,
 				B2AF21D329B7D53B00802935 /* ProductService.swift in Sources */,
 				B22A4F2929B7D45500326B97 /* GrandParadeApp.swift in Sources */,
