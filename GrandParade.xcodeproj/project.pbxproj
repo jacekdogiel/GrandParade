@@ -14,6 +14,7 @@
 		B22A4F3B29B7D45600326B97 /* GrandParadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F3A29B7D45600326B97 /* GrandParadeTests.swift */; };
 		B22A4F4529B7D45600326B97 /* GrandParadeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F4429B7D45600326B97 /* GrandParadeUITests.swift */; };
 		B22A4F4729B7D45600326B97 /* GrandParadeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F4629B7D45600326B97 /* GrandParadeUITestsLaunchTests.swift */; };
+		B2AF21D029B7D4BD00802935 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21CF29B7D4BD00802935 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		B22A4F4029B7D45600326B97 /* GrandParadeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrandParadeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22A4F4429B7D45600326B97 /* GrandParadeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandParadeUITests.swift; sourceTree = "<group>"; };
 		B22A4F4629B7D45600326B97 /* GrandParadeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandParadeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B2AF21CF29B7D4BD00802935 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +97,9 @@
 		B22A4F2729B7D45500326B97 /* GrandParade */ = {
 			isa = PBXGroup;
 			children = (
+				B2AF21CE29B7D4AE00802935 /* Views */,
+				B2AF21CD29B7D4A600802935 /* Models */,
 				B22A4F2829B7D45500326B97 /* GrandParadeApp.swift */,
-				B22A4F2A29B7D45500326B97 /* ContentView.swift */,
 				B22A4F2C29B7D45500326B97 /* Assets.xcassets */,
 				B22A4F2E29B7D45500326B97 /* GrandParade.entitlements */,
 				B22A4F2F29B7D45500326B97 /* Preview Content */,
@@ -127,6 +130,22 @@
 				B22A4F4629B7D45600326B97 /* GrandParadeUITestsLaunchTests.swift */,
 			);
 			path = GrandParadeUITests;
+			sourceTree = "<group>";
+		};
+		B2AF21CD29B7D4A600802935 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B2AF21CF29B7D4BD00802935 /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B2AF21CE29B7D4AE00802935 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B22A4F2A29B7D45500326B97 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +280,7 @@
 			files = (
 				B22A4F2B29B7D45500326B97 /* ContentView.swift in Sources */,
 				B22A4F2929B7D45500326B97 /* GrandParadeApp.swift in Sources */,
+				B2AF21D029B7D4BD00802935 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
