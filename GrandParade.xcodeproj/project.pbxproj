@@ -15,6 +15,8 @@
 		B22A4F4529B7D45600326B97 /* GrandParadeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F4429B7D45600326B97 /* GrandParadeUITests.swift */; };
 		B22A4F4729B7D45600326B97 /* GrandParadeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22A4F4629B7D45600326B97 /* GrandParadeUITestsLaunchTests.swift */; };
 		B2AF21D029B7D4BD00802935 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21CF29B7D4BD00802935 /* Product.swift */; };
+		B2AF21D329B7D53B00802935 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D229B7D53B00802935 /* ProductService.swift */; };
+		B2AF21D529B7D56100802935 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21D429B7D56100802935 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		B22A4F4429B7D45600326B97 /* GrandParadeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandParadeUITests.swift; sourceTree = "<group>"; };
 		B22A4F4629B7D45600326B97 /* GrandParadeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandParadeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B2AF21CF29B7D4BD00802935 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B2AF21D229B7D53B00802935 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		B2AF21D429B7D56100802935 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,14 @@
 		B22A4F2729B7D45500326B97 /* GrandParade */ = {
 			isa = PBXGroup;
 			children = (
+				B2AF21D129B7D51F00802935 /* Services */,
 				B2AF21CE29B7D4AE00802935 /* Views */,
 				B2AF21CD29B7D4A600802935 /* Models */,
 				B22A4F2829B7D45500326B97 /* GrandParadeApp.swift */,
 				B22A4F2C29B7D45500326B97 /* Assets.xcassets */,
 				B22A4F2E29B7D45500326B97 /* GrandParade.entitlements */,
 				B22A4F2F29B7D45500326B97 /* Preview Content */,
+				B2AF21D429B7D56100802935 /* Constants.swift */,
 			);
 			path = GrandParade;
 			sourceTree = "<group>";
@@ -146,6 +152,14 @@
 				B22A4F2A29B7D45500326B97 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B2AF21D129B7D51F00802935 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B2AF21D229B7D53B00802935 /* ProductService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2AF21D529B7D56100802935 /* Constants.swift in Sources */,
 				B22A4F2B29B7D45500326B97 /* ContentView.swift in Sources */,
+				B2AF21D329B7D53B00802935 /* ProductService.swift in Sources */,
 				B22A4F2929B7D45500326B97 /* GrandParadeApp.swift in Sources */,
 				B2AF21D029B7D4BD00802935 /* Product.swift in Sources */,
 			);
