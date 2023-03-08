@@ -37,7 +37,7 @@ struct ProductsListView: View {
             }
             .toolbar {
                 Button(action: {
-                    viewModel.fetchProductsWith(refresh: true)
+                    viewModel.refreshProducts()
                 }) {
                     Label("Refresh", systemImage: "arrow.clockwise")
                 }

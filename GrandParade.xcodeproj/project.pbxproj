@@ -21,6 +21,8 @@
 		B2AF21E129B85A3400802935 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21E029B85A3400802935 /* MockURLProtocol.swift */; };
 		B2AF21E429B85B8E00802935 /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21E329B85B8E00802935 /* ProductServiceTests.swift */; };
 		B2AF21E829B8818C00802935 /* MockProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21E729B8818C00802935 /* MockProductResponse.swift */; };
+		B2AF21EB29B883F300802935 /* ProductsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21EA29B883F300802935 /* ProductsListViewModelTests.swift */; };
+		B2AF21ED29B8850A00802935 /* MockProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF21EC29B8850A00802935 /* MockProductService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		B2AF21E029B85A3400802935 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		B2AF21E329B85B8E00802935 /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
 		B2AF21E729B8818C00802935 /* MockProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductResponse.swift; sourceTree = "<group>"; };
+		B2AF21EA29B883F300802935 /* ProductsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModelTests.swift; sourceTree = "<group>"; };
+		B2AF21EC29B8850A00802935 /* MockProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 		B22A4F3929B7D45600326B97 /* GrandParadeTests */ = {
 			isa = PBXGroup;
 			children = (
+				B2AF21E929B883D900802935 /* ViewModels */,
 				B2AF21E229B85B7100802935 /* Services */,
 				B2AF21DD29B85A0100802935 /* Mocks */,
 			);
@@ -186,6 +191,7 @@
 			children = (
 				B2AF21E029B85A3400802935 /* MockURLProtocol.swift */,
 				B2AF21E729B8818C00802935 /* MockProductResponse.swift */,
+				B2AF21EC29B8850A00802935 /* MockProductService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -196,6 +202,14 @@
 				B2AF21E329B85B8E00802935 /* ProductServiceTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B2AF21E929B883D900802935 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B2AF21EA29B883F300802935 /* ProductsListViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2AF21ED29B8850A00802935 /* MockProductService.swift in Sources */,
+				B2AF21EB29B883F300802935 /* ProductsListViewModelTests.swift in Sources */,
 				B2AF21E129B85A3400802935 /* MockURLProtocol.swift in Sources */,
 				B2AF21E429B85B8E00802935 /* ProductServiceTests.swift in Sources */,
 				B2AF21E829B8818C00802935 /* MockProductResponse.swift in Sources */,

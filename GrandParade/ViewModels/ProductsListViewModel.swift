@@ -16,7 +16,11 @@ class ProductsListViewModel: ObservableObject {
         self.fetchProductsWith(refresh: false)
     }
     
-    func fetchProductsWith(refresh: Bool) {
+    func refreshProducts() {
+        fetchProductsWith(refresh: true)
+    }
+    
+    private func fetchProductsWith(refresh: Bool) {
         productService.fetchProducts(refresh: refresh) { response in
             DispatchQueue.main.async {
                 switch response {
