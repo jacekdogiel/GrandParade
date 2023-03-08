@@ -12,17 +12,25 @@ protocol ProductServicing {
 }
 
 class ProductService: ProductServicing {
+    private var urlSession: URLSession
+    private var urlString: String
+    
+    init(urlString: String = Constants.productsURLString, urlSession: URLSession = .shared) {
+        self.urlString = urlString
+        self.urlSession = urlSession
+    }
+    
     func fetchProducts(refresh: Bool = false, completion: @escaping (Result<[Product], Error>) -> Void) {
-        guard let url = URL(string: Constants.productsURLString) else {
+        guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
             return
         }
         
         var urlRequest = URLRequest(url: url)
 
-        urlRequest.cachePolicy = refresh ? .reloadIgnoringLocalCacheData : .returnCacheDataDontLoad
+        urlRequest.cachePolicy = refresh ? .reloadIgnoringLocalCacheData : .returnCacheDataElseLoad
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        let task = urlSession.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
