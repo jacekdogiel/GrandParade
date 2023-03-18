@@ -7,29 +7,24 @@
 
 import Foundation
 
+@MainActor
 class ProductsListViewModel: ObservableObject {
     private var productService: ProductServicing
     @Published var products = [Product]()
     
     init(productService: ProductServicing) {
         self.productService = productService
-        self.fetchProductsWith(refresh: false)
     }
     
-    func refreshProducts() {
-        fetchProductsWith(refresh: true)
+    func refreshProducts() async {
+        await fetchProductsWith(refresh: true)
     }
     
-    private func fetchProductsWith(refresh: Bool) {
-        productService.fetchProducts(refresh: refresh) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let products):
-                    self.products = products
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+    func fetchProductsWith(refresh: Bool) async {
+        do {
+            products = try await productService.fetchProducts(refresh: refresh)
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

@@ -12,8 +12,8 @@ import Foundation
 class MockProductService: ProductServicing {
     var isFetchMethodCalled: Bool = false
     
-    func fetchProducts(refresh: Bool, completion: @escaping (Result<[GrandParade.Product], Error>) -> Void) {
+    func fetchProducts(refresh: Bool) async throws -> [GrandParade.Product] {
         isFetchMethodCalled = true
-        completion(.success([]))
+        return []
     }
 }

@@ -13,9 +13,9 @@ class ProductsListViewModelTests: XCTestCase {
     var mockProductService: MockProductService!
     var sut: ProductsListViewModel!
 
-    override func setUp() {
+    override func setUp() async throws {
         mockProductService = MockProductService()
-        sut = ProductsListViewModel(productService: mockProductService)
+        sut = await ProductsListViewModel(productService: mockProductService)
     }
 
     override func tearDown() {
@@ -24,20 +24,11 @@ class ProductsListViewModelTests: XCTestCase {
         sut = nil
     }
     
-    func testProductsListViewModel_WhenInitialized_ShouldCallFetchProducts() {
+    func testProductsListViewModel_WhenRefreshFunctionIsCalled_ShouldCallFetchProducts() async {
         // Arrange
 
         // Act
-        
-        // Assert
-        XCTAssertTrue(mockProductService.isFetchMethodCalled, "The fetch method was not called in the ProductService class")
-    }
-    
-    func testProductsListViewModel_WhenRefreshFunctionIsCalled_ShouldCallFetchProducts() {
-        // Arrange
-
-        // Act
-        sut.refreshProducts()
+        await sut.refreshProducts()
         
         // Assert
         XCTAssertTrue(mockProductService.isFetchMethodCalled, "The fetch method was not called in the ProductService class")

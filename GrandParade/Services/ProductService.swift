@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ProductServicing {
-    func fetchProducts(refresh: Bool, completion: @escaping (Result<[Product], Error>) -> Void)
+    func fetchProducts(refresh: Bool) async throws -> [Product]
 }
 
 class ProductService: ProductServicing {
@@ -20,42 +20,26 @@ class ProductService: ProductServicing {
         self.urlSession = urlSession
     }
     
-    func fetchProducts(refresh: Bool = false, completion: @escaping (Result<[Product], Error>) -> Void) {
+    func fetchProducts(refresh: Bool = false) async throws -> [Product] {
         guard let url = URL(string: urlString) else {
-            completion(.failure(NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
-            return
+            throw NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
         }
         
         var urlRequest = URLRequest(url: url)
 
         urlRequest.cachePolicy = refresh ? .reloadIgnoringLocalCacheData : .returnCacheDataElseLoad
         
-        let task = urlSession.dataTask(with: urlRequest) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode) else {
-                completion(.failure(NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP response"])))
-                return
-            }
-            
-            guard let jsonData = data else {
-                completion(.failure(NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data returned"])))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let products = try decoder.decode([Product].self, from: jsonData)
-                completion(.success(products))
-            } catch {
-                completion(.failure(error))
-            }
+        let (data, response) = try await urlSession.data(for: urlRequest)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            throw NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP response"])
         }
         
-        task.resume()
+        print(httpResponse.statusCode)
+        
+        let decoder = JSONDecoder()
+        let products = try decoder.decode([Product].self, from: data)
+        return products
     }
 }

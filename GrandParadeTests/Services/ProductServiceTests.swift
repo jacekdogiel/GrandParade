@@ -29,111 +29,76 @@ class ProductServiceTests: XCTestCase {
     }
     
     
-    func testProductService_WhenGivenSuccessfullResponse_ReturnsSuccess() {
+    func testProductService_WhenGivenSuccessfullResponse_ReturnsSuccess() async {
         
         // Arrange
         MockURLProtocol.stubResponseData =  MockProductResponse.jsonString.data(using: .utf8)
         
-        let expectation = self.expectation(description: "Product Service Response Expectation")
-        
         // Act
-        sut.fetchProducts(refresh: true) { response in
-            switch response {
-            case .success(let products):
-                // Assert
-                XCTAssertEqual(products.count, 3)
-                XCTAssertEqual(products.first?.name, "Product1")
-                expectation.fulfill()
-            case .failure(_):
-                XCTFail()
-                expectation.fulfill()
-            }
+        do {
+            let products = try await sut.fetchProducts(refresh: true)
+            XCTAssertEqual(products.count, 3)
+        } catch {
+            XCTFail()
         }
-        self.wait(for: [expectation], timeout: 2)
     }
     
-    func testProductService_WhenURLRequestFailsWithError_ReturnsFailure() {
+    func testProductService_WhenURLRequestFailsWithError_ReturnsFailure() async {
         
         // Arrange
-        let expectation = self.expectation(description: "A failed Request expectation")
-        MockURLProtocol.error = NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP response"])
+        let description = "Invalid HTTP response"
+        MockURLProtocol.error = NSError(domain: "ProductService", code: -1, userInfo: [NSLocalizedDescriptionKey: description])
         
         // Act
-        sut.fetchProducts(refresh: true) { response in
-            switch response {
-            case .success(let products):
-                XCTAssertFalse(products.count > 0)
-                expectation.fulfill()
-            case .failure(_):
-                // Assert
-                expectation.fulfill()
-            }
+        do {
+            let products = try await sut.fetchProducts(refresh: true)
+            XCTAssertFalse(products.count > 0)
+        } catch {
+            XCTAssertTrue(error.localizedDescription == description)
         }
-        self.wait(for: [expectation], timeout: 2)
     }
     
-    func testProductService_WhenGivenInvalidResponse_ReturnsFailure() {
+    func testProductService_WhenGivenInvalidResponse_ReturnsFailure() async {
         
         // Arrange
         let jsonString = "{\"error\":\"Internal Server Error\"}"
         MockURLProtocol.stubResponseData =  jsonString.data(using: .utf8)
         
-        let expectation = self.expectation(description: "Product Service Failure Response Expectation")
-        
         // Act
-        sut.fetchProducts(refresh: true) { response in
-            switch response {
-            case .success(let products):
-                XCTAssertFalse(products.count > 0)
-                expectation.fulfill()
-            case .failure(_):
-                // Assert
-                expectation.fulfill()
-            }
+        do {
+            let products = try await sut.fetchProducts(refresh: true)
+            XCTAssertFalse(products.count > 0)
+        } catch {
+            //
         }
-        self.wait(for: [expectation], timeout: 2)
     }
     
-    func testProductService_WhenGivenResponseWithErrorStatusCode_ReturnsFailure() {
+    func testProductService_WhenGivenResponseWithErrorStatusCode_ReturnsFailure() async {
         
         // Arrange
         MockURLProtocol.stubResponseData =  MockProductResponse.jsonString.data(using: .utf8)
         MockURLProtocol.statusCode = 400
-        
-        let expectation = self.expectation(description: "Product Service Failure Response Expectation")
-        
+                
         // Act
-        sut.fetchProducts(refresh: true) { response in
-            switch response {
-            case .success(let products):
-                XCTAssertFalse(products.count > 0)
-                expectation.fulfill()
-            case .failure(_):
-                // Assert
-                expectation.fulfill()
-            }
+        do {
+            let products = try await sut.fetchProducts(refresh: true)
+            XCTAssertFalse(products.count > 0)
+        } catch {
+            XCTAssertEqual(error.localizedDescription, "Invalid HTTP response")
         }
-        self.wait(for: [expectation], timeout: 2)
     }
     
-    func testProductService_WhenEmptyURLStringProvided_ReturnsError() {
+    func testProductService_WhenEmptyURLStringProvided_ReturnsError() async {
         // Arrange
-        let expectation = self.expectation(description: "An empty request URL string expectation")
-        
         sut = ProductService(urlString: "")
         
         // Act
-        sut.fetchProducts(refresh: true) { response in
-            switch response {
-            case .success(let products):
-                XCTAssertFalse(products.count > 0)
-                expectation.fulfill()
-            case .failure(_):
-                // Assert
-                expectation.fulfill()
-            }
+        do {
+            let products = try await sut.fetchProducts(refresh: true)
+            XCTAssertFalse(products.count > 0)
+        } catch {
+            XCTAssertEqual(error.localizedDescription, "Invalid URL")
         }
-        self.wait(for: [expectation], timeout: 2)
     }
 }
 

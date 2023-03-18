@@ -37,12 +37,17 @@ struct ProductsListView: View {
             }
             .toolbar {
                 Button(action: {
-                    viewModel.refreshProducts()
+                    Task {
+                        await viewModel.refreshProducts()
+                    }
                 }) {
                     Label("Refresh", systemImage: "arrow.clockwise")
                 }
             }
             .navigationTitle("Products")
+            .task {
+                await viewModel.fetchProductsWith(refresh: false)
+            }
         }
     }
 }
